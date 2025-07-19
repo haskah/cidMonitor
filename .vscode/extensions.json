@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "redhat.vscode-xml",
+        "formulahendry.code-runner",
+        "ms-vscode.hexdump"
+    ]
+} 

@@ -1,0 +1,18 @@
+{
+    "omnisharp.useGlobalMono": "never",
+    "omnisharp.useModernNet": false,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "csharp.semanticHighlighting.enabled": true,
+    "csharp.format.enable": true,
+    "files.associations": {
+        "*.config": "xml"
+    },
+    "xml.fileAssociations": [
+        {
+            "pattern": "**/*.config",
+            "systemId": "http://schemas.microsoft.com/.NetConfiguration/v2.0#"
+        }
+    ]
+} 

@@ -16,7 +16,7 @@ packages/
 *.sln.docstates
 
 # VS Code settings
-.vscode/
+#.vscode/
 
 # Build results
 [Dd]ebug/

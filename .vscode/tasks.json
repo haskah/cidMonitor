@@ -1,0 +1,134 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "args": [
+                "CloudVoiceCidService.csproj",
+                "/p:Configuration=Debug",
+                "/p:Platform=\"Any CPU\"",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            }
+        },
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "args": [
+                "CloudVoiceCidService.csproj",
+                "/p:Configuration=Release",
+                "/p:Platform=\"Any CPU\"",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            }
+        },
+        {
+            "label": "download-packages",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "DownloadPackages.bat"],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "build-project",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "BuildProject.bat"],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "build-vs2022",
+            "type": "shell",
+            "command": "${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "args": [
+                "CloudVoiceCidService.csproj",
+                "/p:Configuration=Debug",
+                "/p:Platform=\"Any CPU\""
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            }
+        },
+        {
+            "label": "build-vs2019-community",
+            "type": "shell",
+            "command": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "args": [
+                "CloudVoiceCidService.csproj",
+                "/p:Configuration=Debug",
+                "/p:Platform=\"Any CPU\""
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            }
+        },
+        {
+            "label": "build-dotnet-framework",
+            "type": "shell",
+            "command": "${env:SystemRoot}\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe",
+            "args": [
+                "CloudVoiceCidService.csproj",
+                "/p:Configuration=Debug",
+                "/p:Platform=\"Any CPU\""
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile",
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            }
+        }
+    ]
+} 
