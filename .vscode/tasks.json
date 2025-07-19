@@ -4,7 +4,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "command": "\"${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
             "args": [
                 "CloudVoiceCidService.csproj",
                 "/p:Configuration=Debug",
@@ -26,7 +26,7 @@
         {
             "label": "build-release",
             "type": "shell",
-            "command": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "command": "\"${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
             "args": [
                 "CloudVoiceCidService.csproj",
                 "/p:Configuration=Release",
@@ -70,7 +70,7 @@
         {
             "label": "build-vs2022",
             "type": "shell",
-            "command": "${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "command": "\"${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
             "args": [
                 "CloudVoiceCidService.csproj",
                 "/p:Configuration=Debug",
@@ -91,7 +91,7 @@
         {
             "label": "build-vs2019-community",
             "type": "shell",
-            "command": "${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "command": "\"${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
             "args": [
                 "CloudVoiceCidService.csproj",
                 "/p:Configuration=Debug",
@@ -112,7 +112,7 @@
         {
             "label": "build-dotnet-framework",
             "type": "shell",
-            "command": "${env:SystemRoot}\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe",
+            "command": "\"${env:SystemRoot}\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe\"",
             "args": [
                 "CloudVoiceCidService.csproj",
                 "/p:Configuration=Debug",
