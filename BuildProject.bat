@@ -3,36 +3,85 @@ echo CloudVoice CID Service - Build Script
 echo ======================================
 
 REM .NET Framework path'lerini belirle
-set MSBUILD_2019="%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
-set MSBUILD_2017="%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe"
-set MSBUILD_FRAMEWORK="%ProgramFiles(x86)%\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
-set MSBUILD_NET="%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2022_ENT="%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2022_PRO="%ProgramFiles%\Microsoft Visual Studio\2022\Professional\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2022_COM="%ProgramFiles%\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2019_ENT="%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2019_PRO="%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2019_COM="%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_2017_ENT="%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe"
+set MSBUILD_2017_PRO="%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin\MSBuild.exe"
+set MSBUILD_2017_COM="%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+set MSBUILD_BUILDTOOLS="%ProgramFiles(x86)%\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
+set MSBUILD_FRAMEWORK="%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe"
 
 echo Proje derleniyor...
 echo.
 
-REM MSBuild'i bul ve kullan
-if exist %MSBUILD_NET% (
-    echo Visual Studio 2022 MSBuild bulundu.
-    %MSBUILD_NET% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+REM MSBuild'i bul ve kullan (VS2019 Community oncelikli)
+if exist %MSBUILD_2019_COM% (
+    echo Visual Studio 2019 Community MSBuild bulundu.
+    %MSBUILD_2019_COM% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
     goto :build_done
 )
 
-if exist %MSBUILD_2019% (
-    echo Visual Studio 2019 MSBuild bulundu.
-    %MSBUILD_2019% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+if exist %MSBUILD_2019_ENT% (
+    echo Visual Studio 2019 Enterprise MSBuild bulundu.
+    %MSBUILD_2019_ENT% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2019_PRO% (
+    echo Visual Studio 2019 Professional MSBuild bulundu.
+    %MSBUILD_2019_PRO% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2022_ENT% (
+    echo Visual Studio 2022 Enterprise MSBuild bulundu.
+    %MSBUILD_2022_ENT% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2022_PRO% (
+    echo Visual Studio 2022 Professional MSBuild bulundu.
+    %MSBUILD_2022_PRO% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2022_COM% (
+    echo Visual Studio 2022 Community MSBuild bulundu.
+    %MSBUILD_2022_COM% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_BUILDTOOLS% (
+    echo Build Tools MSBuild bulundu.
+    %MSBUILD_BUILDTOOLS% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2017_ENT% (
+    echo Visual Studio 2017 Enterprise MSBuild bulundu.
+    %MSBUILD_2017_ENT% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2017_PRO% (
+    echo Visual Studio 2017 Professional MSBuild bulundu.
+    %MSBUILD_2017_PRO% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
+    goto :build_done
+)
+
+if exist %MSBUILD_2017_COM% (
+    echo Visual Studio 2017 Community MSBuild bulundu.
+    %MSBUILD_2017_COM% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
     goto :build_done
 )
 
 if exist %MSBUILD_FRAMEWORK% (
-    echo Build Tools MSBuild bulundu.
+    echo .NET Framework MSBuild bulundu.
     %MSBUILD_FRAMEWORK% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
-    goto :build_done
-)
-
-if exist %MSBUILD_2017% (
-    echo Visual Studio 2017 MSBuild bulundu.
-    %MSBUILD_2017% CloudVoiceCidService.csproj /p:Configuration=Release /p:Platform="Any CPU"
     goto :build_done
 )
 
