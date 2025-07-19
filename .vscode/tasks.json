@@ -4,24 +4,20 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "\"${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
+            "command": "cmd",
             "args": [
+                "/c",
+                "\"${env:ProgramFiles(x86)}\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
                 "CloudVoiceCidService.csproj",
                 "/p:Configuration=Debug",
-                "/p:Platform=\"Any CPU\"",
+                "/p:Platform=AnyCPU",
                 "/consoleloggerparameters:NoSummary"
             ],
             "group": "build",
             "presentation": {
                 "reveal": "always"
             },
-            "problemMatcher": "$msCompile",
-            "options": {
-                "shell": {
-                    "executable": "cmd.exe",
-                    "args": ["/c"]
-                }
-            }
+            "problemMatcher": "$msCompile"
         },
         {
             "label": "build-release",
@@ -61,7 +57,10 @@
             "type": "shell",
             "command": "cmd",
             "args": ["/c", "BuildProject.bat"],
-            "group": "build",
+            "group": {
+                "kind": "build", 
+                "isDefault": true
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
